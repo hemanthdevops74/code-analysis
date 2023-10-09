@@ -68,16 +68,7 @@ CHUNK_OVERLAP=200
 #Pythons Sample from google.cloud
 #APP_PATH="/Users/hemanthkumar74/Documents/langchain/code_chat/transactional-microservice-examples"
 
-# Create a function to download the PDF
-def download_pdf(llm_response, file_name):
 
-  # Create a new PDF file.
-  with open(file_name, "wb") as f:
-    # Write the LLM response to the file.
-    f.write(llm_response.content)
-
-  # Close the file.
-  f.close()
 
 def main():
     # load_dotenv()
@@ -114,12 +105,12 @@ def main():
     # if st.button("Start Analysis..."):
     #     if application_path and front_end and user_question:)
     if st.button('Start Analysis...'):
-        st.write(front_end)
+
         if application_path and front_end and user_question:
             APP_PATH = application_path
             global text_splitter
             if front_end == "Java" and APP_PATH:
-                st.write("inside java if")
+
                 loader = GenericLoader.from_filesystem(
                     APP_PATH,
                     glob="**/*",
@@ -132,7 +123,7 @@ def main():
                                                                     chunk_overlap=CHUNK_OVERLAP)
             elif front_end == "Python" and APP_PATH:
             
-                st.write("inside Python if")
+
                 loader = GenericLoader.from_filesystem(
                     APP_PATH,
                     glob="**/*",
@@ -145,7 +136,7 @@ def main():
                                                                     chunk_overlap=CHUNK_OVERLAP)
 
 
-            st.write("finished splitting")
+            st.write(text_splitter)
             with st.spinner("Processing"):
                 
                 texts = text_splitter.split_documents(documents)
@@ -192,9 +183,7 @@ def main():
                 #         message_holder.markdown(full_response+" ")
                 # message_holder.info(full_response)
 
-                 # Create a button for the user to click to download the PDF
-                download_button=st.download_button("Download analysis as HTML",data=llm_response,file_name="chat_response.html",mime="txt/html")
-            
+              
                 
 
 if __name__ == '__main__':
