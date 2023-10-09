@@ -8,4 +8,4 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 # Expose the port that Streamlit will run on (default is 8501)
 EXPOSE 8501
-ENTRYPOINT ["streamlit", "run", "code_chat.py", "--server.port=8501", "--server.address=0.0.0.0","--server.maxUploadSize=20", "--theme.base=dark"]
+ENTRYPOINT ["streamlit", "run", "code_chat.py", "--server.port=8501"]
