@@ -4,3 +4,4 @@ chroma
 python-dotenv
 streamlit
 google-cloud-aiplatform
+google-auth-oauthlib
