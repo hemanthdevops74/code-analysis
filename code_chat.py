@@ -2,7 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 import os
 # import json
-
+from google.auth import exceptions, default
 
 from langchain.document_loaders import Docx2txtLoader
 from langchain.text_splitter import Language
@@ -34,7 +34,7 @@ from langchain.embeddings import VertexAIEmbeddings
 #-----
 
 
-
+credentials, _ = default()
 
 # import os
 # os.environ['GOOGLE_APPLICAITON_CREDENTIALS']='/Users/hemanthkumar74/Documents/langchain/chat_with_csv/credentials.json'
