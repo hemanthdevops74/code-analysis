@@ -1,6 +1,7 @@
 langchain
 docx2txt
 chroma
+chromadb
 python-dotenv
 streamlit
 google-cloud-aiplatform
