@@ -119,7 +119,7 @@ def main():
             APP_PATH = application_path
             global text_splitter
             if front_end == "Java" and APP_PATH:
-                
+                st.write("inside java if")
                 loader = GenericLoader.from_filesystem(
                     APP_PATH,
                     glob="**/*",
@@ -132,7 +132,7 @@ def main():
                                                                     chunk_overlap=CHUNK_OVERLAP)
             elif front_end == "Python" and APP_PATH:
             
-
+                st.write("inside Python if")
                 loader = GenericLoader.from_filesystem(
                     APP_PATH,
                     glob="**/*",
@@ -145,7 +145,7 @@ def main():
                                                                     chunk_overlap=CHUNK_OVERLAP)
 
 
-        
+            st.write("finished splitting")
             with st.spinner("Processing"):
                 
                 texts = text_splitter.split_documents(documents)
