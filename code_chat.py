@@ -138,9 +138,9 @@ def main():
 
           
             with st.spinner("Processing"):
-                
+                st.write(documents)
                 texts = text_splitter.split_documents(documents)
-                st.write(texts)
+                #st.write(texts)
                 # print(texts)
                 # Perform a Maximal Marginal Relevance (MMR) search
                 db = Chroma.from_documents(texts, VertexAIEmbeddings(disallowed_special=()))
