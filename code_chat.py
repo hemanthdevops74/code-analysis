@@ -136,10 +136,11 @@ def main():
                                                                     chunk_overlap=CHUNK_OVERLAP)
 
 
-            st.write(text_splitter)
+          
             with st.spinner("Processing"):
                 
                 texts = text_splitter.split_documents(documents)
+                st.write(texts)
                 # print(texts)
                 # Perform a Maximal Marginal Relevance (MMR) search
                 db = Chroma.from_documents(texts, VertexAIEmbeddings(disallowed_special=()))
