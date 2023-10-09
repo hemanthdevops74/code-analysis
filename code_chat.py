@@ -115,7 +115,7 @@ def main():
     #     if application_path and front_end and user_question:)
     if st.button('Start Analysis...'):
         st.write(front_end)
-        if application_path and front_end and user_question and os.path.exists(application_path):
+        if application_path and front_end and user_question:
             APP_PATH = application_path
             global text_splitter
             if front_end == "Java" and APP_PATH:
