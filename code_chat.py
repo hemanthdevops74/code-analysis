@@ -135,12 +135,20 @@ def main():
                                                                     chunk_size=CHUNK_SIZE, 
                                                                     chunk_overlap=CHUNK_OVERLAP)
 
+                text_splitter = RecursiveCharacterTextSplitter(
+                                # Set a really small chunk size, just to show.
+                                chunk_size = 100,
+                                chunk_overlap  = 20,
+                                length_function = len,
+                                is_separator_regex = False,
+                                )
 
           
             with st.spinner("Processing"):
                 st.write(documents)
-                texts = text_splitter.split_documents(documents)
-                texts = "This is a sample text to check embeddings rate limiting"
+                #texts = text_splitter.split_documents(documents)
+                texts = text_splitter.create_documents([text_area_default_value])
+                
                 st.write(texts)
                 # print(texts)
                 # Perform a Maximal Marginal Relevance (MMR) search
