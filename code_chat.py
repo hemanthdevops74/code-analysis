@@ -140,10 +140,12 @@ def main():
             with st.spinner("Processing"):
                 st.write(documents)
                 texts = text_splitter.split_documents(documents)
-                #st.write(texts)
+                texts = "This is a sample text to check embeddings rate limiting"
+                st.write(texts)
                 # print(texts)
                 # Perform a Maximal Marginal Relevance (MMR) search
                 db = Chroma.from_documents(texts, VertexAIEmbeddings(disallowed_special=()))
+                s.write("Completed writing to chromadb")
                 retriever = db.as_retriever(
                     search_type="mmr", # Also test "similarity"
                     search_kwargs={"k": 8}
