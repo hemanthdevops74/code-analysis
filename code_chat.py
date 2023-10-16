@@ -145,7 +145,7 @@ def main():
                 # print(texts)
                 # Perform a Maximal Marginal Relevance (MMR) search
                 db = Chroma.from_documents(texts, VertexAIEmbeddings(disallowed_special=()))
-                s.write("Completed writing to chromadb")
+                st.write("Completed writing to chromadb")
                 retriever = db.as_retriever(
                     search_type="mmr", # Also test "similarity"
                     search_kwargs={"k": 8}
